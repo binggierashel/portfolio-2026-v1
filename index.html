@@ -1,0 +1,1881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — Binggie Rashel Prasetyo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-main: #0b0f1d;
+      --bg-deep: #080b16;
+      --bg-card: #151c31;
+      --bg-card-hover: #1b243f;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --accent: #e2fb63;
+      --accent-hover: #d4f246;
+      --text-white: #ffffff;
+      --text-muted: #b6bfd6;
+      --text-dim: #7e8aa8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', 'Segoe UI', Arial, sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ================= NAVBAR ================= */
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 26px 0;
+      position: relative;
+      z-index: 20;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 0.78rem;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      line-height: 1.15;
+    }
+
+    .brand-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      color: var(--accent);
+    }
+
+    .brand-sub {
+      display: block;
+      font-size: 0.62rem;
+      font-weight: 500;
+      color: var(--text-dim);
+      letter-spacing: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #d5dcef;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .btn-contact-nav {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 6px 6px 6px 18px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
+    }
+
+    .btn-contact-nav:hover {
+      border-color: var(--accent);
+      background: rgba(226, 251, 99, 0.08);
+    }
+
+    .btn-contact-nav .arrow-circle {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #0b0f1d;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 0.85rem;
+    }
+
+    /* ================= BUTTONS ================= */
+    .btn-accent {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 30px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #0b0f1d;
+      font-weight: 800;
+      font-size: 0.76rem;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(226, 251, 99, 0.24);
+      transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+      font-family: inherit;
+    }
+
+    .btn-accent:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(226, 251, 99, 0.34);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(226, 251, 99, 0.08);
+    }
+
+    /* ================= HERO SECTION ================= */
+    .hero-wrapper {
+      position: relative;
+      overflow: hidden;
+      padding-top: 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background:
+        radial-gradient(circle at 50% 58%, rgba(154, 214, 92, 0.34) 0%, rgba(56, 114, 158, 0.25) 36%, rgba(11, 15, 29, 0) 68%),
+        linear-gradient(180deg, #0b0f1d 0%, #111c35 66%, #1f386e 100%);
+    }
+
+    .hero-headline {
+      text-align: center;
+      position: relative;
+      z-index: 5;
+      margin-bottom: 12px;
+    }
+
+    .hero-headline h1 {
+      font-size: clamp(2rem, 4.4vw, 3.35rem);
+      font-weight: 800;
+      line-height: 1.22;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-headline .italic-accent {
+      font-style: italic;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .hero-headline .pill-box {
+      display: inline-block;
+      padding: 2px 18px 6px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.15);
+      margin-right: 8px;
+    }
+
+    .hero-stage {
+      position: relative;
+      min-height: 420px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    /* Frameless Cutout Portrait (like reference mockup) */
+    .hero-portrait-wrap {
+      position: relative;
+      z-index: 4;
+      width: 340px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero-portrait {
+      width: 320px;
+      height: 390px;
+      object-fit: contain;
+      object-position: center bottom;
+      display: block;
+      filter: drop-shadow(0 18px 36px rgba(0, 0, 0, 0.55));
+    }
+
+    .hero-cta-overlap {
+      position: absolute;
+      bottom: 24px;
+      z-index: 6;
+    }
+
+    /* Floating Left & Right Cards */
+    .floating-card {
+      position: absolute;
+      z-index: 5;
+      width: 275px;
+      padding: 18px 20px;
+      border-radius: 16px;
+      background: rgba(16, 22, 42, 0.78);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.42);
+    }
+
+    .floating-left {
+      left: 16px;
+      top: 95px;
+      transform: rotate(-6deg);
+      animation: floatCardLeft 4.2s ease-in-out infinite;
+      will-change: transform;
+    }
+
+    @keyframes floatCardLeft {
+      0%, 100% {
+        transform: translateY(0px) rotate(-6deg);
+      }
+      50% {
+        transform: translateY(-14px) rotate(-3.5deg);
+      }
+    }
+
+    .floating-left h3 {
+      font-size: 0.92rem;
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 8px;
+    }
+
+    .badge-score {
+      display: inline-block;
+      padding: 2px 7px;
+      font-size: 0.68rem;
+      font-weight: 800;
+      border-radius: 6px;
+      background: #4f46e5;
+      color: #fff;
+      margin-left: 4px;
+      vertical-align: middle;
+    }
+
+    .floating-left p {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    .floating-right {
+      right: 16px;
+      top: 95px;
+      transform: rotate(6deg);
+      animation: floatCardRight 4.6s ease-in-out infinite 0.5s;
+      will-change: transform;
+    }
+
+    @keyframes floatCardRight {
+      0%, 100% {
+        transform: translateY(0px) rotate(6deg);
+      }
+      50% {
+        transform: translateY(-15px) rotate(3.5deg);
+      }
+    }
+
+    .floating-right h3 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .exp-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 9px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: #d5dcef;
+    }
+
+    .exp-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .exp-label {
+      width: 82px;
+      flex-shrink: 0;
+    }
+
+    .exp-bar {
+      flex: 1;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.14);
+      border-radius: 99px;
+      position: relative;
+    }
+
+    .exp-fill {
+      height: 100%;
+      border-radius: 99px;
+      background: linear-gradient(90deg, #6366f1, #a855f7);
+      position: relative;
+    }
+
+    .exp-fill::after {
+      content: '';
+      position: absolute;
+      right: -4px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 0 8px rgba(168, 85, 247, 0.9);
+    }
+
+    .exp-val {
+      width: 28px;
+      text-align: right;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    /* ================= WHO AM I SECTION ================= */
+    .about-section {
+      position: relative;
+      padding: 110px 0 90px;
+      text-align: center;
+    }
+
+    .section-heading {
+      font-size: clamp(1.75rem, 3.2vw, 2.35rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      margin-bottom: 24px;
+    }
+
+    .about-content {
+      max-width: 560px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 3;
+    }
+
+    .about-content p {
+      font-size: 0.92rem;
+      color: #d9e0f2;
+      margin-bottom: 18px;
+      line-height: 1.68;
+    }
+
+    .about-content .btn-accent {
+      margin-top: 10px;
+    }
+
+    /* Floating 3D Cards around WHO AM I */
+    .mini-photo {
+      position: absolute;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1.5px solid rgba(255, 255, 255, 0.18);
+      box-shadow:
+        0 22px 50px rgba(0, 0, 0, 0.65),
+        0 0 42px rgba(99, 102, 241, 0.26),
+        inset 0 1px 1px rgba(255, 255, 255, 0.25);
+      background: radial-gradient(circle at 30% 25%, #23325b 0%, #0f172a 85%);
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+
+    .mini-photo svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 10px 14px rgba(0, 0, 0, 0.5));
+    }
+
+    .mini-1 {
+      width: 78px;
+      height: 94px;
+      top: 42px;
+      left: 15%;
+      transform: rotate(-16deg);
+      animation: float3D1 5s ease-in-out infinite;
+    }
+
+    .mini-2 {
+      width: 120px;
+      height: 150px;
+      bottom: 70px;
+      left: 6%;
+      transform: rotate(-11deg);
+      animation: float3D2 5.6s ease-in-out infinite 0.6s;
+    }
+
+    .mini-3 {
+      width: 124px;
+      height: 154px;
+      top: 125px;
+      right: 7%;
+      transform: rotate(11deg);
+      animation: float3D3 5.2s ease-in-out infinite 0.3s;
+    }
+
+    @keyframes float3D1 {
+      0%, 100% { transform: translateY(0px) rotate(-16deg) scale(1); }
+      50% { transform: translateY(-12px) rotate(-11deg) scale(1.04); }
+    }
+
+    @keyframes float3D2 {
+      0%, 100% { transform: translateY(0px) rotate(-11deg) scale(1); }
+      50% { transform: translateY(-14px) rotate(-7deg) scale(1.03); }
+    }
+
+    @keyframes float3D3 {
+      0%, 100% { transform: translateY(0px) rotate(11deg) scale(1); }
+      50% { transform: translateY(-14px) rotate(7deg) scale(1.03); }
+    }
+
+    /* Scroll to Top Button */
+    .scroll-top-btn {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #0b0f1d;
+      border: none;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      z-index: 90;
+      box-shadow: 0 10px 28px rgba(226, 251, 99, 0.35);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(16px) scale(0.9);
+      transition: all 0.28s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .scroll-top-btn.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
+    }
+
+    .scroll-top-btn:hover {
+      background: var(--accent-hover);
+      transform: translateY(-4px) scale(1.06);
+      box-shadow: 0 14px 32px rgba(226, 251, 99, 0.5);
+    }
+
+    /* ================= MY SKILLS SECTION ================= */
+    .skills-section {
+      padding: 40px 0 80px;
+    }
+
+    .skills-section .section-heading {
+      text-align: center;
+      margin-bottom: 38px;
+    }
+
+    .skills-layout {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .skill-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      height: 138px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-4px);
+      background: var(--bg-card-hover);
+      border-color: rgba(226, 251, 99, 0.35);
+    }
+
+    .skill-card svg {
+      width: 48px;
+      height: 48px;
+    }
+
+    .skill-name {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    .experience-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 32px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .exp-number {
+      font-size: 3.8rem;
+      font-weight: 800;
+      line-height: 1;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    .exp-title {
+      font-size: 1.18rem;
+      font-weight: 700;
+      line-height: 1.32;
+      margin-bottom: 22px;
+      color: #e5ecff;
+    }
+
+    /* Additional Skills Box */
+    .additional-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 26px 28px;
+      text-align: center;
+    }
+
+    .additional-title {
+      font-size: 1rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .additional-list {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .add-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 16px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #dbe3f8;
+    }
+
+    .add-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+    }
+
+    /* ================= PROJECTS SECTION ================= */
+    .projects-section {
+      padding: 50px 0 90px;
+    }
+
+    .projects-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1.35fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .projects-left h2 {
+      font-size: clamp(2rem, 3.8vw, 2.85rem);
+      font-weight: 800;
+      line-height: 1.18;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      letter-spacing: 0.5px;
+    }
+
+    .projects-left p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      max-width: 360px;
+    }
+
+    .projects-left .btn-accent {
+      width: 100%;
+      max-width: 340px;
+      padding: 15px 28px;
+    }
+
+    /* Accordion Vertical Cards (like reference mockup) */
+    .projects-gallery {
+      display: flex;
+      gap: 14px;
+      height: 370px;
+    }
+
+    .project-panel {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      cursor: pointer;
+      flex: 1;
+      transition: flex 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: #162038;
+    }
+
+    .project-panel.active {
+      flex: 2.35;
+    }
+
+    .project-panel img,
+    .project-art {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .project-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(11, 15, 29, 0.08) 20%, rgba(11, 15, 29, 0.94) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 20px;
+    }
+
+    .project-tag {
+      display: inline-block;
+      align-self: flex-start;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: rgba(226, 251, 99, 0.18);
+      border: 1px solid rgba(226, 251, 99, 0.4);
+      color: var(--accent);
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: all 0.3s ease;
+    }
+
+    .project-panel.active .project-tag,
+    .project-panel.active .project-desc {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .project-title {
+      font-size: 1.06rem;
+      font-weight: 800;
+      line-height: 1.25;
+      color: #fff;
+    }
+
+    .project-desc {
+      font-size: 0.78rem;
+      color: #cbd5e1;
+      margin-top: 6px;
+      line-height: 1.45;
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.35s ease;
+    }
+
+    .project-panel.active .project-desc {
+      max-height: 100px;
+    }
+
+    /* ================= FULL PROJECT PHOTO GALLERY & DESCRIPTIONS ================= */
+    .project-showcase {
+      margin-top: 56px;
+      padding-top: 48px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: none;
+      animation: fadeIn 0.35s ease;
+    }
+
+    .project-showcase.open {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .showcase-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .showcase-header h3 {
+      font-size: 1.55rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--accent);
+      letter-spacing: 0.5px;
+    }
+
+    .showcase-header p {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .project-detail-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 28px;
+      margin-bottom: 28px;
+    }
+
+    .project-detail-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .project-detail-top h4 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #ffffff;
+    }
+
+    .project-role-badge {
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      background: rgba(226, 251, 99, 0.14);
+      color: var(--accent);
+      border: 1px solid rgba(226, 251, 99, 0.35);
+      text-transform: uppercase;
+    }
+
+    .project-detail-desc {
+      font-size: 0.9rem;
+      color: #d5dcef;
+      margin-bottom: 18px;
+      line-height: 1.65;
+    }
+
+    .project-tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 22px;
+    }
+
+    .tech-pill {
+      padding: 4px 11px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.06);
+      font-size: 0.73rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    /* Photo Grid inside each Project */
+    .photo-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .photo-slot {
+      background: rgba(11, 15, 29, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .photo-slot:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.45);
+    }
+
+    .photo-thumb {
+      position: relative;
+      height: 235px;
+      background: linear-gradient(135deg, #1b2644, #0f172a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .photo-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.35s ease;
+    }
+
+    .photo-slot:hover .photo-thumb img {
+      transform: scale(1.04);
+    }
+
+    .photo-placeholder-hint {
+      text-align: center;
+      padding: 16px;
+      color: var(--text-dim);
+      font-size: 0.75rem;
+    }
+
+    .photo-placeholder-hint strong {
+      display: block;
+      color: #cbd5e1;
+      font-size: 0.8rem;
+      margin-bottom: 4px;
+    }
+
+    .photo-caption {
+      padding: 12px 14px;
+      font-size: 0.78rem;
+      color: #d5dcef;
+      background: rgba(21, 28, 49, 0.9);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      flex: 1;
+    }
+
+    .photo-caption strong {
+      display: block;
+      color: var(--accent);
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      margin-bottom: 3px;
+    }
+
+    /* Lightbox Modal for full-size project photos */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(8, 11, 22, 0.92);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox-box {
+      max-width: 820px;
+      width: 100%;
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.7);
+    }
+
+    .lightbox-img-wrap {
+      width: 100%;
+      max-height: 70vh;
+      background: #080b16;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .lightbox-img-wrap img {
+      max-width: 100%;
+      max-height: 70vh;
+      object-fit: contain;
+    }
+
+    .lightbox-footer {
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    /* ================= CONTACT SECTION ================= */
+    .contact-section {
+      padding: 20px 0 80px;
+    }
+
+    .contact-card {
+      background: #ffffff;
+      color: #111827;
+      border-radius: 26px;
+      padding: 54px 48px;
+      max-width: 820px;
+      margin: 0 auto;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+    }
+
+    .contact-card h2 {
+      text-align: center;
+      font-size: clamp(1.65rem, 3vw, 2.25rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      color: #0b0f1d;
+      margin-bottom: 32px;
+      letter-spacing: 0.5px;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 660px;
+      margin: 0 auto;
+    }
+
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      border: none;
+      background: #e5e7eb;
+      border-radius: 14px;
+      padding: 18px 22px;
+      font-family: inherit;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #111827;
+      outline: none;
+      transition: box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+      color: #4b5563;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+      background: #dde1e7;
+      box-shadow: 0 0 0 2px #0b0f1d;
+    }
+
+    .form-textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .btn-submit {
+      margin-top: 6px;
+      width: 100%;
+      padding: 16px;
+      font-size: 0.82rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 0 24px 40px;
+      font-size: 0.78rem;
+      color: var(--text-dim);
+    }
+
+    /* ================= RESPONSIVE (TABLET & MOBILE) ================= */
+    @keyframes floatCardMobileLeft {
+      0%, 100% { transform: translateY(0px) rotate(-1.5deg); }
+      50% { transform: translateY(-8px) rotate(1deg); }
+    }
+
+    @keyframes floatCardMobileRight {
+      0%, 100% { transform: translateY(0px) rotate(1.5deg); }
+      50% { transform: translateY(-8px) rotate(-1deg); }
+    }
+
+    @media (max-width: 900px) {
+      .container {
+        padding: 0 18px;
+      }
+
+      .hero-stage {
+        flex-direction: column;
+        align-items: center;
+        min-height: auto;
+        padding-bottom: 28px;
+        gap: 14px;
+      }
+
+      .hero-portrait-wrap {
+        order: 1;
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 6px;
+      }
+
+      .hero-portrait {
+        width: 260px;
+        height: 320px;
+      }
+
+      .hero-cta-overlap {
+        bottom: 14px;
+      }
+
+      .floating-card {
+        position: static;
+        width: 100%;
+        max-width: 360px;
+        margin: 0 auto;
+      }
+
+      .floating-left {
+        order: 2;
+        animation: floatCardMobileLeft 4s ease-in-out infinite;
+      }
+
+      .floating-right {
+        order: 3;
+        animation: floatCardMobileRight 4.4s ease-in-out infinite 0.4s;
+      }
+
+      /* Keep 3D cards visible on mobile in a neat row above WHO AM I */
+      .about-section {
+        padding: 72px 18px 64px;
+      }
+
+      .mini-photo {
+        position: relative;
+        top: auto !important;
+        bottom: auto !important;
+        left: auto !important;
+        right: auto !important;
+        display: inline-flex;
+        width: 78px !important;
+        height: 92px !important;
+        margin: 0 6px 22px;
+        vertical-align: middle;
+      }
+
+      .skills-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .projects-wrap {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .projects-left {
+        text-align: center;
+      }
+
+      .projects-left p {
+        margin: 0 auto 20px;
+      }
+
+      .projects-left .btn-accent {
+        max-width: 280px;
+      }
+
+      .projects-gallery {
+        flex-direction: column;
+        height: 460px;
+      }
+
+      .photo-gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-card {
+        padding: 36px 22px;
+        border-radius: 22px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .navbar {
+        flex-wrap: wrap;
+        gap: 14px;
+        padding: 18px 0 12px;
+      }
+
+      .nav-links {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        gap: 22px;
+        padding: 10px 14px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .nav-links a {
+        font-size: 0.72rem;
+      }
+
+      .hero-headline h1 {
+        font-size: 1.85rem;
+        line-height: 1.28;
+      }
+
+      .hero-headline .pill-box {
+        padding: 2px 12px 4px;
+        margin-right: 4px;
+      }
+
+      .skill-card {
+        height: 120px;
+        padding: 12px;
+      }
+
+      .skill-card svg {
+        width: 40px;
+        height: 40px;
+      }
+
+      .additional-box {
+        padding: 22px 16px;
+      }
+
+      .add-badge {
+        font-size: 0.74rem;
+        padding: 8px 12px;
+      }
+
+      .project-detail-card {
+        padding: 20px 16px;
+      }
+
+      .photo-thumb {
+        height: 200px;
+      }
+
+      .scroll-top-btn {
+        bottom: 18px;
+        right: 18px;
+        width: 44px;
+        height: 44px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= HERO & NAVBAR ================= -->
+  <div class="hero-wrapper">
+    <div class="container">
+      <nav class="navbar">
+        <a href="#" class="brand">
+          <div class="brand-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <circle cx="12" cy="12" r="3"></circle>
+              <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(30 12 12)"></ellipse>
+              <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(150 12 12)"></ellipse>
+            </svg>
+          </div>
+          <div>
+            BINGGIE
+            <span class="brand-sub">PORTFOLIO</span>
+          </div>
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="#about">About Me</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+        </ul>
+
+        <a href="#contact" class="btn-contact-nav">
+          Contact
+          <span class="arrow-circle">↗</span>
+        </a>
+      </nav>
+
+      <!-- Headline -->
+      <div class="hero-headline">
+        <h1>
+          I'm <span class="italic-accent">Binggie Rashel</span><br />
+          <span class="pill-box">Network &amp; IoT</span> Engineer
+        </h1>
+      </div>
+
+      <!-- Center Portrait & Floating Glass Cards -->
+      <div class="hero-stage">
+        <!-- Left Floating Card -->
+        <div class="floating-card floating-left">
+          <h3>
+            Internship Experience<br />
+            PT Bonet Utama <span class="badge-score">5 Mos</span>
+          </h3>
+          <p>
+            Network Technician &amp; IT Support Intern — Handled residential and corporate WiFi
+            network maintenance, troubleshooting, and daily bandwidth monitoring.
+          </p>
+        </div>
+
+        <!-- Center Frameless Cutout Portrait -->
+        <div class="hero-portrait-wrap">
+          <img
+            id="heroPortraitImg"
+            src="img/pas-foto-removebg-preview.png"
+            alt="Binggie Rashel Prasetyo"
+            class="hero-portrait"
+          />
+          <div class="hero-cta-overlap">
+            <a href="#projects" class="btn-accent" onclick="openProjectShowcase()">My Projects</a>
+          </div>
+        </div>
+
+        <!-- Right Floating Card (Expertise Sliders) -->
+        <div class="floating-card floating-right">
+          <h3>My Expertise</h3>
+          <div class="exp-row">
+            <span class="exp-label">NETWORKING</span>
+            <div class="exp-bar"><div class="exp-fill" style="width: 88%"></div></div>
+            <span class="exp-val">88%</span>
+          </div>
+          <div class="exp-row">
+            <span class="exp-label">IOT &amp; MCU</span>
+            <div class="exp-bar"><div class="exp-fill" style="width: 85%"></div></div>
+            <span class="exp-val">85%</span>
+          </div>
+          <div class="exp-row">
+            <span class="exp-label">IT SUPPORT</span>
+            <div class="exp-bar"><div class="exp-fill" style="width: 92%"></div></div>
+            <span class="exp-val">92%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= WHO AM I ? ================= -->
+  <section id="about" class="about-section container">
+    <!-- Floating 3D Tech Illustrations -->
+    <div class="mini-photo mini-1" title="3D Network Cube">
+      <svg viewBox="0 0 100 100" fill="none">
+        <defs>
+          <linearGradient id="cubeTop" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#e2fb63" />
+            <stop offset="100%" stop-color="#38bdf8" />
+          </linearGradient>
+          <linearGradient id="cubeLeft" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#0284c7" />
+            <stop offset="100%" stop-color="#1e1b4b" />
+          </linearGradient>
+          <linearGradient id="cubeRight" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#6366f1" />
+            <stop offset="100%" stop-color="#0f172a" />
+          </linearGradient>
+        </defs>
+        <polygon points="50,14 84,33 50,52 16,33" fill="url(#cubeTop)" />
+        <polygon points="16,33 50,52 50,88 16,69" fill="url(#cubeLeft)" />
+        <polygon points="50,52 84,33 84,69 50,88" fill="url(#cubeRight)" />
+        <circle cx="50" cy="33" r="5" fill="#0b0f1d" />
+        <circle cx="50" cy="33" r="2.5" fill="#ffffff" />
+      </svg>
+    </div>
+
+    <div class="mini-photo mini-2" title="3D Isometric Network Server & Router">
+      <svg viewBox="0 0 120 150" fill="none">
+        <defs>
+          <linearGradient id="srvTop" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#38bdf8" />
+            <stop offset="100%" stop-color="#818cf8" />
+          </linearGradient>
+          <linearGradient id="srvSide1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#1e3a8a" />
+            <stop offset="100%" stop-color="#0f172a" />
+          </linearGradient>
+          <linearGradient id="srvSide2" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#312e81" />
+            <stop offset="100%" stop-color="#090d1a" />
+          </linearGradient>
+        </defs>
+        <!-- Bottom 3D Server Layer -->
+        <polygon points="60,72 104,95 60,118 16,95" fill="url(#srvTop)" />
+        <polygon points="16,95 60,118 60,136 16,113" fill="url(#srvSide1)" />
+        <polygon points="60,118 104,95 104,113 60,136" fill="url(#srvSide2)" />
+        <circle cx="28" cy="109" r="2.5" fill="#e2fb63" />
+        <circle cx="36" cy="113" r="2.5" fill="#38bdf8" />
+        <!-- Middle 3D Server Layer -->
+        <polygon points="60,46 104,69 60,92 16,69" fill="url(#srvTop)" />
+        <polygon points="16,69 60,92 60,110 16,87" fill="url(#srvSide1)" />
+        <polygon points="60,92 104,69 104,87 60,110" fill="url(#srvSide2)" />
+        <circle cx="28" cy="83" r="2.5" fill="#e2fb63" />
+        <circle cx="36" cy="87" r="2.5" fill="#22c55e" />
+        <!-- Top 3D Router Layer + Antennas -->
+        <polygon points="60,20 104,43 60,66 16,43" fill="url(#srvTop)" />
+        <polygon points="16,43 60,66 60,84 16,61" fill="url(#srvSide1)" />
+        <polygon points="60,66 104,43 104,61 60,84" fill="url(#srvSide2)" />
+        <line x1="40" y1="32" x2="40" y2="12" stroke="#e2fb63" stroke-width="3.5" stroke-linecap="round" />
+        <line x1="80" y1="32" x2="80" y2="12" stroke="#e2fb63" stroke-width="3.5" stroke-linecap="round" />
+        <circle cx="40" cy="10" r="3.5" fill="#e2fb63" />
+        <circle cx="80" cy="10" r="3.5" fill="#e2fb63" />
+      </svg>
+    </div>
+
+    <div class="mini-photo mini-3" title="3D IoT & Embedded Microcontroller">
+      <svg viewBox="0 0 120 150" fill="none">
+        <defs>
+          <linearGradient id="iotBoard" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#14b8a6" />
+            <stop offset="100%" stop-color="#0f766e" />
+          </linearGradient>
+          <linearGradient id="iotCore" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#e2fb63" />
+            <stop offset="100%" stop-color="#4ade80" />
+          </linearGradient>
+        </defs>
+        <!-- 3D Isometric PCB Base -->
+        <polygon points="60,34 108,62 60,90 12,62" fill="url(#iotBoard)" />
+        <polygon points="12,62 60,90 60,104 12,76" fill="#0d9488" />
+        <polygon points="60,90 108,62 108,76 60,104" fill="#115e59" />
+        <!-- 3D Gold Pins -->
+        <line x1="26" y1="82" x2="20" y2="92" stroke="#facc15" stroke-width="3" stroke-linecap="round" />
+        <line x1="38" y1="89" x2="32" y2="99" stroke="#facc15" stroke-width="3" stroke-linecap="round" />
+        <line x1="50" y1="96" x2="44" y2="106" stroke="#facc15" stroke-width="3" stroke-linecap="round" />
+        <line x1="94" y1="82" x2="100" y2="92" stroke="#facc15" stroke-width="3" stroke-linecap="round" />
+        <line x1="82" y1="89" x2="88" y2="99" stroke="#facc15" stroke-width="3" stroke-linecap="round" />
+        <line x1="70" y1="96" x2="76" y2="106" stroke="#facc15" stroke-width="3" stroke-linecap="round" />
+        <!-- Raised 3D MCU Core -->
+        <polygon points="60,44 84,58 60,72 36,58" fill="#1e293b" stroke="url(#iotCore)" stroke-width="2" />
+        <polygon points="36,58 60,72 60,80 36,66" fill="#0f172a" />
+        <polygon points="60,72 84,58 84,66 60,80" fill="#090d1a" />
+        <!-- Floating 3D IoT Signal Waves -->
+        <path d="M46 28 C54 20, 66 20, 74 28" stroke="#e2fb63" stroke-width="3" stroke-linecap="round" />
+        <path d="M38 20 C50 8, 70 8, 82 20" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" />
+        <circle cx="60" cy="58" r="4.5" fill="#e2fb63" />
+      </svg>
+    </div>
+
+    <h2 class="section-heading">Who Am I ?</h2>
+    <div class="about-content">
+      <p>
+        I am a 5th-semester <strong>Computer Engineering Technology</strong> student at IPB University
+        Vocational School with a strong foundation in Computer and Network Engineering. I specialize in
+        <strong>Networking &amp; Infrastructure</strong> (VLSM, routing, wireless networks, and MikroTik)
+        as well as <strong>IoT &amp; Embedded Systems</strong> development.
+      </p>
+      <p>
+        Building reliable network architectures and smart embedded devices is my passion, which drives me
+        to lead industry-partnered campus projects alongside my 5 months of hands-on internship experience
+        as a Network Technician &amp; IT Support.
+      </p>
+      <p>
+        I am currently seeking an internship opportunity where I can contribute my technical skills,
+        solve real-world infrastructure challenges, and grow within a professional engineering team.
+      </p>
+      <a href="#project-gallery-section" class="btn-accent" onclick="openProjectShowcase()">Show My Projects</a>
+    </div>
+  </section>
+
+  <!-- ================= MY SKILLS ================= -->
+  <section id="skills" class="skills-section container">
+    <h2 class="section-heading">My Skills</h2>
+
+    <div class="skills-layout">
+      <!-- 8 Main Skill Cards -->
+      <div class="skills-grid">
+        <!-- 1. Cisco Packet Tracer -->
+        <div class="skill-card">
+          <svg viewBox="0 0 48 48" fill="none">
+            <rect x="6" y="8" width="36" height="12" rx="4" fill="#38bdf8" />
+            <rect x="6" y="28" width="36" height="12" rx="4" fill="#0284c7" />
+            <circle cx="13" cy="14" r="2.2" fill="#fff" />
+            <circle cx="20" cy="14" r="2.2" fill="#e2fb63" />
+            <circle cx="13" cy="34" r="2.2" fill="#fff" />
+            <circle cx="20" cy="34" r="2.2" fill="#e2fb63" />
+          </svg>
+          <span class="skill-name">Cisco Packet Tracer</span>
+        </div>
+
+        <!-- 2. MikroTik / Winbox -->
+        <div class="skill-card">
+          <svg viewBox="0 0 48 48" fill="none">
+            <circle cx="24" cy="24" r="18" stroke="#60a5fa" stroke-width="3.5" />
+            <path d="M15 28L24 14L33 28H15Z" fill="#3b82f6" />
+            <circle cx="24" cy="25" r="3" fill="#fff" />
+          </svg>
+          <span class="skill-name">MikroTik &amp; Winbox</span>
+        </div>
+
+        <!-- 3. VLSM & Routing -->
+        <div class="skill-card">
+          <svg viewBox="0 0 48 48" fill="none">
+            <rect x="8" y="8" width="32" height="32" rx="8" fill="#facc15" />
+            <path d="M16 24H32M24 16V32M19 19L15 24L19 29M29 19L33 24L29 29" stroke="#0b0f1d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <span class="skill-name">VLSM &amp; Routing</span>
+        </div>
+
+        <!-- 4. Wireless Network -->
+        <div class="skill-card">
+          <svg viewBox="0 0 48 48" fill="none">
+            <path d="M8 20C16.8 12 31.2 12 40 20" stroke="#22d3ee" stroke-width="3.5" stroke-linecap="round" />
+            <path d="M13 26C19.2 20.5 28.8 20.5 35 26" stroke="#22d3ee" stroke-width="3.5" stroke-linecap="round" />
+            <path d="M18.5 32C21.6 29.2 26.4 29.2 29.5 32" stroke="#22d3ee" stroke-width="3.5" stroke-linecap="round" />
+            <circle cx="24" cy="37" r="3" fill="#e2fb63" />
+          </svg>
+          <span class="skill-name">Wireless / WiFi</span>
+        </div>
+
+        <!-- 5. Arduino IDE -->
+        <div class="skill-card">
+          <svg viewBox="0 0 48 48" fill="none">
+            <circle cx="17" cy="24" r="8" stroke="#14b8a6" stroke-width="3.5" />
+            <circle cx="31" cy="24" r="8" stroke="#14b8a6" stroke-width="3.5" />
+            <path d="M14 24H20M28 24H34M31 21V27" stroke="#fff" stroke-width="2.5" stroke-linecap="round" />
+          </svg>
+          <span class="skill-name">Arduino IDE</span>
+        </div>
+
+        <!-- 6. IoT & Embedded -->
+        <div class="skill-card">
+          <svg viewBox="0 0 48 48" fill="none">
+            <rect x="14" y="14" width="20" height="20" rx="4" fill="#22c55e" />
+            <rect x="19" y="19" width="10" height="10" rx="2" fill="#0b0f1d" />
+            <path d="M18 8V14M24 8V14M30 8V14M18 34V40M24 34V40M30 34V40M8 18H14M8 24H14M8 30H14M34 18H40M34 24H40M34 30H40" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" />
+          </svg>
+          <span class="skill-name">IoT &amp; Embedded</span>
+        </div>
+
+        <!-- 7. VMware -->
+        <div class="skill-card">
+          <svg viewBox="0 0 48 48" fill="none">
+            <rect x="10" y="10" width="18" height="18" rx="4" stroke="#38bdf8" stroke-width="3.5" />
+            <rect x="20" y="20" width="18" height="18" rx="4" stroke="#818cf8" stroke-width="3.5" />
+          </svg>
+          <span class="skill-name">VMware</span>
+        </div>
+
+        <!-- 8. VS Code -->
+        <div class="skill-card">
+          <svg viewBox="0 0 48 48" fill="none">
+            <path d="M34 8L14 27L8 22L6 24L14 33L34 15V34L40 31V11L34 8Z" fill="#3b82f6" />
+            <path d="M34 34L14 15L8 20L6 18L14 9L34 27V8L40 11V37L34 40V34Z" fill="#60a5fa" opacity="0.85" />
+          </svg>
+          <span class="skill-name">VS Code</span>
+        </div>
+      </div>
+
+      <!-- Right Tall Experience Card -->
+      <div class="experience-box">
+        <div class="exp-number">5</div>
+        <div class="exp-title">
+          Months Internship<br />
+          &amp; Hands-On<br />
+          Project Experience
+        </div>
+        <a href="../cv/CV - Binggie Rashel Prasetyo.pdf" download class="btn-accent">
+          Download My CV
+        </a>
+      </div>
+    </div>
+
+    <!-- Additional Skills Row -->
+    <div class="additional-box">
+      <div class="additional-title">Additional Skills</div>
+      <div class="additional-list">
+        <span class="add-badge"><span class="add-dot" style="background:#facc15"></span>Linux</span>
+        <span class="add-badge"><span class="add-dot" style="background:#f97316"></span>Ubuntu Server</span>
+        <span class="add-badge"><span class="add-dot" style="background:#38bdf8"></span>AWS Cloud</span>
+        <span class="add-badge"><span class="add-dot" style="background:#22c55e"></span>PLC</span>
+        <span class="add-badge"><span class="add-dot" style="background:#e2fb63"></span>Leadership</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= THE WORKS CLOSEST TO MY HEART ================= -->
+  <section id="projects" class="projects-section container">
+    <div class="projects-wrap">
+      <div class="projects-left">
+        <h2>
+          The Works<br />
+          Closest To<br />
+          My Heart
+        </h2>
+        <p>
+          Click on any card on the right to preview, or press <strong>Show My Projects</strong> below
+          to open the complete project photo gallery &amp; technical descriptions.
+        </p>
+        <button type="button" class="btn-accent" onclick="toggleProjectShowcase()">
+          Show My Projects
+        </button>
+      </div>
+
+      <!-- Interactive Expanding 2-Card Gallery -->
+      <div class="projects-gallery">
+        <!-- Project 1 -->
+        <article class="project-panel active" onclick="activateProject(this)">
+          <img
+            src="img/prototipe-alat-kalta.jpeg"
+            alt="Smart Autodosing Greenhouse Melon Prototype"
+            class="project-art"
+          />
+          <div class="project-overlay">
+            <span class="project-tag">IoT &amp; Embedded • 2026</span>
+            <h3 class="project-title">Smart Autodosing Greenhouse Melon</h3>
+            <p class="project-desc">
+              Team Leader for an industry-partnered IoT project with Kalta Farm, building an automated nutrient dosing system for greenhouse melon cultivation.
+            </p>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-panel" onclick="activateProject(this)">
+          <img
+            src="img/troubleshooting-network-wireless.jpg"
+            alt="WiFi Infrastructure & Wireless Troubleshooting"
+            class="project-art"
+          />
+          <div class="project-overlay">
+            <span class="project-tag">Networking &amp; Internship • 2024</span>
+            <h3 class="project-title">WiFi Infrastructure &amp; Bandwidth Monitoring</h3>
+            <p class="project-desc">
+              Residential and corporate client WiFi maintenance, field troubleshooting, and daily bandwidth monitoring at PT Bonet Utama Bogor.
+            </p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- ================= EXPANDABLE PROJECT PHOTO GALLERY & DESCRIPTIONS ================= -->
+    <div id="project-gallery-section" class="project-showcase open">
+      <div class="showcase-header">
+        <div>
+          <h3>Project Photo Gallery &amp; Documentation</h3>
+          <p>Click any photo below to view it in full screen with its technical description.</p>
+        </div>
+        <button type="button" class="btn-outline" onclick="toggleProjectShowcase()">
+          Hide Gallery
+        </button>
+      </div>
+
+      <!-- PROJECT 1 GALLERY CARD -->
+      <div class="project-detail-card">
+        <div class="project-detail-top">
+          <div>
+            <h4>1. Smart Autodosing Greenhouse Melon (IPB Vocational School × Kalta Farm)</h4>
+          </div>
+          <span class="project-role-badge">Team Leader • 2026 – Present</span>
+        </div>
+        <p class="project-detail-desc">
+          Led a collaborative engineering team to design and build an automated nutrient dosing system (<em>smart autodosing</em>) for greenhouse melon cultivation. Coordinated directly with our industry partner (Kalta Farm) to gather field requirements and translate them into an integrated IoT &amp; embedded control system.
+        </p>
+        <div class="project-tech-tags">
+          <span class="tech-pill">IoT &amp; Embedded Systems</span>
+          <span class="tech-pill">Arduino IDE / Microcontroller</span>
+          <span class="tech-pill">Peristaltic Pumps &amp; Relays</span>
+          <span class="tech-pill">Nutrient &amp; pH Sensors</span>
+          <span class="tech-pill">Project Leadership</span>
+        </div>
+
+        <div class="photo-gallery-grid">
+          <div class="photo-slot">
+            <div class="photo-thumb" onclick="openLightbox(this)">
+              <img src="img/prototipe-alat-kalta.jpeg" alt="Smart Autodosing Hardware Prototype" />
+            </div>
+            <div class="photo-caption">
+              <strong>Hardware Prototype &amp; Peristaltic Pump Assembly</strong>
+              Assembling and testing the microcontroller wiring, 4-channel relay module, nutrient/pH sensor modules, step-down buck converter, switching power supply, and 3 peristaltic dosing pumps.
+            </div>
+          </div>
+
+          <div class="photo-slot">
+            <div class="photo-thumb" onclick="openLightbox(this)">
+              <img src="img/foto-dengan-mitra-kalta.jpg" alt="Field Coordination with Kalta Farm Partner" />
+            </div>
+            <div class="photo-caption">
+              <strong>Field Visit &amp; Coordination with Kalta Farm Partner</strong>
+              On-site team coordination and requirement gathering with our industry partner at Kalta Farm to align the automated greenhouse dosing system with real field conditions.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 2 GALLERY CARD -->
+      <div class="project-detail-card">
+        <div class="project-detail-top">
+          <div>
+            <h4>2. Network Maintenance &amp; Daily Bandwidth Monitoring (PT Bonet Utama Bogor)</h4>
+          </div>
+          <span class="project-role-badge">Network &amp; IT Support Intern • Jan – May 2024</span>
+        </div>
+        <p class="project-detail-desc">
+          Assisted network technicians in maintaining and troubleshooting wireless (WiFi) infrastructure for residential and corporate clients, while performing daily bandwidth checks to ensure stable network connectivity.
+        </p>
+        <div class="project-tech-tags">
+          <span class="tech-pill">Wireless / WiFi Maintenance</span>
+          <span class="tech-pill">MikroTik CPE &amp; Winbox</span>
+          <span class="tech-pill">Bandwidth Monitoring</span>
+          <span class="tech-pill">Network Troubleshooting</span>
+        </div>
+
+        <div class="photo-gallery-grid">
+          <div class="photo-slot">
+            <div class="photo-thumb" onclick="openLightbox(this)">
+              <img src="img/troubleshooting-network-wireless.jpg" alt="Wireless Network Troubleshooting" />
+            </div>
+            <div class="photo-caption">
+              <strong>Wireless CPE &amp; Network Switch Troubleshooting</strong>
+              Configuring and troubleshooting outdoor wireless antenna (MikroTik CPE) and network switch connectivity during hands-on technical operations.
+            </div>
+          </div>
+
+          <div class="photo-slot">
+            <div class="photo-thumb" onclick="openLightbox(this)">
+              <img src="img/pkl-smk-dengan-tempat-magang.jpg" alt="Internship at PT Bonet Utama Bogor" />
+            </div>
+            <div class="photo-caption">
+              <strong>5-Month Internship Completion at PT Bonet Utama</strong>
+              Official documentation and plaque handover with PT Bonet Utama Bogor and SMKN 1 Kemang Bogor upon completing the Network Technician &amp; IT Support internship program.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Modal for viewing full photos -->
+  <div id="lightboxModal" class="lightbox" onclick="closeLightbox()">
+    <div class="lightbox-box" onclick="event.stopPropagation()">
+      <div class="lightbox-img-wrap">
+        <img id="lightboxImg" src="" alt="Project Preview" />
+      </div>
+      <div class="lightbox-footer">
+        <div id="lightboxCaption" style="font-size: 0.9rem; font-weight: 600; color: #e2e8f0;"></div>
+        <button type="button" class="btn-outline" onclick="closeLightbox()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= LET'S HAVE A CHAT ================= -->
+  <section id="contact" class="contact-section container">
+    <div class="contact-card">
+      <h2>Let's Have A Chat</h2>
+      <form class="contact-form" onsubmit="handleContact(event)">
+        <input
+          type="text"
+          id="senderName"
+          class="form-input"
+          placeholder="Your Name"
+          required
+        />
+        <input
+          type="email"
+          id="senderEmail"
+          class="form-input"
+          placeholder="Email Address"
+          required
+        />
+        <textarea
+          id="senderMessage"
+          class="form-textarea"
+          placeholder="Chat Here"
+          required
+        ></textarea>
+        <button type="submit" class="btn-accent btn-submit">Submit Here</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2026 Binggie Rashel Prasetyo • Tajurhalang, Bogor Regency, West Java •
+    <a href="mailto:binggierashel@gmail.com" style="color: var(--accent)">binggierashel@gmail.com</a>
+  </footer>
+
+  <!-- Scroll to Top Button -->
+  <button
+    type="button"
+    id="scrollTopBtn"
+    class="scroll-top-btn"
+    aria-label="Scroll to top"
+    onclick="scrollToTop()"
+  >
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 15l-6-6-6 6" />
+    </svg>
+  </button>
+
+  <script>
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        scrollTopBtn.classList.add('visible');
+      } else {
+        scrollTopBtn.classList.remove('visible');
+      }
+    });
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function activateProject(panel) {
+      document.querySelectorAll('.project-panel').forEach((item) => {
+        item.classList.remove('active');
+      });
+      panel.classList.add('active');
+    }
+
+    function openProjectShowcase() {
+      const section = document.getElementById('project-gallery-section');
+      section.classList.add('open');
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function toggleProjectShowcase() {
+      const section = document.getElementById('project-gallery-section');
+      section.classList.toggle('open');
+      if (section.classList.contains('open')) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    function openLightbox(thumbEl) {
+      const img = thumbEl.querySelector('img');
+      if (!img || !img.getAttribute('src')) return;
+      const captionEl = thumbEl.parentElement.querySelector('.photo-caption');
+      document.getElementById('lightboxImg').src = img.src;
+      document.getElementById('lightboxCaption').innerText = captionEl ? captionEl.innerText : '';
+      document.getElementById('lightboxModal').classList.add('active');
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightboxModal').classList.remove('active');
+    }
+
+    function handleContact(e) {
+      e.preventDefault();
+      const name = document.getElementById('senderName').value.trim();
+      const email = document.getElementById('senderEmail').value.trim();
+      const msg = document.getElementById('senderMessage').value.trim();
+      const subject = encodeURIComponent(`Internship Portfolio Inquiry from ${name}`);
+      const body = encodeURIComponent(`Hello Binggie,\n\nName: ${name}\nEmail: ${email}\n\nMessage:\n${msg}`);
+      window.location.href = `mailto:binggierashel@gmail.com?subject=${subject}&body=${body}`;
+    }
+  </script>
+</body>
+</html>
