@@ -1199,7 +1199,7 @@
 
       .projects-gallery {
         flex-direction: column;
-        height: 460px;
+        height: 560px;
       }
 
       .photo-gallery-grid {
@@ -1589,7 +1589,7 @@
           &amp; Hands-On<br />
           Project Experience
         </div>
-        <a href="CV - Binggie Rashel Prasetyo.pdf" download class="btn-accent">
+        <a href="https://drive.google.com/drive/folders/10o0R06r8t77QEgkUtYegRdevgCcrKNuJ?usp=sharing" target="_blank" rel="noopener" class="btn-accent">
           Download My CV
         </a>
       </div>
@@ -1655,7 +1655,7 @@
         </button>
       </div>
 
-      <!-- Interactive Expanding 3-Card Gallery -->
+      <!-- Interactive Expanding 4-Card Gallery -->
       <div class="projects-gallery">
         <!-- Project 1 -->
         <article class="project-panel active" onclick="activateProject(this)">
@@ -1689,7 +1689,23 @@
           </div>
         </article>
 
-        <!-- Project 3 -->
+        <!-- Project 3: Room Temperature Monitoring (DHT22 & Arduino Mega) -->
+        <article class="project-panel" onclick="activateProject(this)">
+          <img
+            src="img/alat-suhu-ruangan-dhtt22-arduinomega.png"
+            alt="Room Temperature Monitoring System with DHT22 and Arduino Mega"
+            class="project-art"
+          />
+          <div class="project-overlay">
+            <span class="project-tag">Embedded &amp; Sensors • Sep – Oct 2025</span>
+            <h3 class="project-title">Room Temperature Monitoring (DHT22 &amp; Arduino Mega)</h3>
+            <p class="project-desc">
+              Multi-point room temperature monitoring system built with 4 DHT22 sensors, Arduino Mega 2560, and a 16x2 LCD display for real-time average calculation and high-temperature alerts.
+            </p>
+          </div>
+        </article>
+
+        <!-- Project 4 -->
         <article class="project-panel" onclick="activateProject(this)">
           <img
             src="img/troubleshooting-network-wireless.jpg"
@@ -1824,11 +1840,53 @@
         </div>
       </div>
 
-      <!-- PROJECT 3 GALLERY CARD -->
+      <!-- PROJECT 3 GALLERY CARD: ROOM TEMPERATURE MONITORING (DHT22 & ARDUINO MEGA) -->
       <div class="project-detail-card">
         <div class="project-detail-top">
           <div>
-            <h4>3. Network Maintenance &amp; Daily Bandwidth Monitoring (PT Bonet Utama Bogor)</h4>
+            <h4>3. Multi-Sensor Room Temperature Monitoring System (DHT22 &amp; Arduino Mega)</h4>
+          </div>
+          <span class="project-role-badge">Embedded Project • Sep – Oct 2025</span>
+        </div>
+        <p class="project-detail-desc">
+          Designed and built a multi-point room temperature and humidity monitoring device powered by an <strong>Arduino Mega</strong> microcontroller and four <strong>DHT22</strong> digital sensors. The system computes the average room temperature in real time, displays readings and high-temperature alerts on a 16&times;2 LCD screen, and supports serial data monitoring via PC.
+        </p>
+        <div class="project-tech-tags">
+          <span class="tech-pill">Arduino Mega 2560</span>
+          <span class="tech-pill">4&times; DHT22 Sensors</span>
+          <span class="tech-pill">16&times;2 I2C LCD Display</span>
+          <span class="tech-pill">Arduino IDE (C/C++)</span>
+          <span class="tech-pill">Embedded Hardware Assembly</span>
+        </div>
+
+        <div class="photo-gallery-grid">
+          <div class="photo-slot">
+            <div class="photo-thumb" onclick="openLightbox(this)">
+              <img src="img/alat-suhu-ruangan-dhtt22-arduinomega.png" alt="Room Temperature Monitoring Hardware Box with DHT22 and Arduino Mega" />
+            </div>
+            <div class="photo-caption">
+              <strong>Hardware Unit — 4&times; DHT22 Array &amp; LCD Display</strong>
+              Custom enclosure equipped with four top-mounted DHT22 sensors, an Arduino Mega controller inside, and a 16&times;2 LCD displaying live average temperature (<code>Avg: 27.4</code>) and high-temperature status (<code>Suhu Tinggi</code>).
+            </div>
+          </div>
+
+          <div class="photo-slot">
+            <div class="photo-thumb" onclick="openLightbox(this)">
+              <img src="img/foto-bersama-alat-suhu -ruangan.jpeg" alt="Team Documentation with Room Temperature Monitoring Device" />
+            </div>
+            <div class="photo-caption">
+              <strong>Team Documentation &amp; Hardware Testing</strong>
+              Project team photo at IPB Vocational School showcasing the completed multi-sensor room temperature monitoring device alongside laptop serial testing.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 4 GALLERY CARD -->
+      <div class="project-detail-card">
+        <div class="project-detail-top">
+          <div>
+            <h4>4. Network Maintenance &amp; Daily Bandwidth Monitoring (PT Bonet Utama Bogor)</h4>
           </div>
           <span class="project-role-badge">Network &amp; IT Support Intern • Jan – May 2024</span>
         </div>
