@@ -891,7 +891,7 @@
     /* Photo Grid inside each Project */
     .photo-gallery-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 20px;
     }
 
@@ -1304,6 +1304,7 @@
           <li><a href="#about">About Me</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#projects">Projects</a></li>
+          <li><a href="https://www.linkedin.com/in/binggie-rashel-prasetyo/" target="_blank" rel="noopener">LinkedIn</a></li>
         </ul>
 
         <a href="#contact" class="btn-contact-nav">
@@ -1588,7 +1589,7 @@
           &amp; Hands-On<br />
           Project Experience
         </div>
-        <a href="../cv/CV - Binggie Rashel Prasetyo.pdf" download class="btn-accent">
+        <a href="CV - Binggie Rashel Prasetyo.pdf" download class="btn-accent">
           Download My CV
         </a>
       </div>
@@ -1625,7 +1626,7 @@
         </button>
       </div>
 
-      <!-- Interactive Expanding 2-Card Gallery -->
+      <!-- Interactive Expanding 3-Card Gallery -->
       <div class="projects-gallery">
         <!-- Project 1 -->
         <article class="project-panel active" onclick="activateProject(this)">
@@ -1643,7 +1644,23 @@
           </div>
         </article>
 
-        <!-- Project 2 -->
+        <!-- Project 2: GasGuard MQ-2 LPG Gas Leak Detection -->
+        <article class="project-panel" onclick="activateProject(this)">
+          <img
+            src="img/alat-iot-projek-sistem monitoring kebakarang gas lpg rumah tangga di mq2.jpeg"
+            alt="GasGuard Household LPG Gas Leak Detection System"
+            class="project-art"
+          />
+          <div class="project-overlay">
+            <span class="project-tag">IoT &amp; Web Dashboard • ESP32 &amp; MQ-2</span>
+            <h3 class="project-title">GasGuard — LPG Gas Leak Detection System</h3>
+            <p class="project-desc">
+              Household LPG gas leak monitoring and early-warning system powered by ESP32 and MQ-2 sensor with OLED display, automated exhaust fan relay, real-time web dashboard, and Telegram alerts.
+            </p>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
         <article class="project-panel" onclick="activateProject(this)">
           <img
             src="img/troubleshooting-network-wireless.jpg"
@@ -1687,6 +1704,7 @@
         <div class="project-tech-tags">
           <span class="tech-pill">IoT &amp; Embedded Systems</span>
           <span class="tech-pill">Arduino IDE / Microcontroller</span>
+          <span class="tech-pill">3D CAD Enclosure Design</span>
           <span class="tech-pill">Peristaltic Pumps &amp; Relays</span>
           <span class="tech-pill">Nutrient &amp; pH Sensors</span>
           <span class="tech-pill">Project Leadership</span>
@@ -1705,6 +1723,16 @@
 
           <div class="photo-slot">
             <div class="photo-thumb" onclick="openLightbox(this)">
+              <img src="img/3d-iot.jpeg" alt="3D CAD Enclosure Design for Smart Autodosing" />
+            </div>
+            <div class="photo-caption">
+              <strong>3D CAD Controller Box &amp; Enclosure Design</strong>
+              Custom 3D-modeled enclosure box featuring a hinged front panel, LCD display cutout window, top latch clips, and front-mounted peristaltic dosing pumps.
+            </div>
+          </div>
+
+          <div class="photo-slot">
+            <div class="photo-thumb" onclick="openLightbox(this)">
               <img src="img/foto-dengan-mitra-kalta.jpg" alt="Field Coordination with Kalta Farm Partner" />
             </div>
             <div class="photo-caption">
@@ -1715,11 +1743,63 @@
         </div>
       </div>
 
-      <!-- PROJECT 2 GALLERY CARD -->
+      <!-- PROJECT 2 GALLERY CARD: GASGUARD MQ-2 LPG MONITORING -->
       <div class="project-detail-card">
         <div class="project-detail-top">
           <div>
-            <h4>2. Network Maintenance &amp; Daily Bandwidth Monitoring (PT Bonet Utama Bogor)</h4>
+            <h4>2. GasGuard — Household LPG Gas Leak Detection &amp; Monitoring System (MQ-2 &amp; ESP32)</h4>
+          </div>
+          <span class="project-role-badge">IoT &amp; Embedded Systems Project</span>
+        </div>
+        <p class="project-detail-desc">
+          Designed and built an IoT-based household LPG gas leak detection and fire prevention system using an <strong>ESP32</strong> microcontroller and <strong>MQ-2 gas sensor</strong>. The device monitors gas concentration (PPM) in real time on an integrated OLED display and web dashboard, triggers a mini exhaust fan via relay when gas levels rise, and sends instant alert notifications via Telegram Bot.
+        </p>
+        <div class="project-tech-tags">
+          <span class="tech-pill">ESP32 Microcontroller</span>
+          <span class="tech-pill">MQ-2 Gas Sensor</span>
+          <span class="tech-pill">Real-Time Web Dashboard</span>
+          <span class="tech-pill">OLED Display &amp; Exhaust Relay</span>
+          <span class="tech-pill">Telegram Bot API</span>
+        </div>
+
+        <div class="photo-gallery-grid">
+          <div class="photo-slot">
+            <div class="photo-thumb" onclick="openLightbox(this)">
+              <img src="img/alat-iot-projek-sistem monitoring kebakarang gas lpg rumah tangga di mq2.jpeg" alt="GasGuard IoT Hardware Unit" />
+            </div>
+            <div class="photo-caption">
+              <strong>GasGuard Hardware Unit &amp; OLED Display</strong>
+              Completed IoT detector unit featuring an MQ-2 gas sensor, OLED status screen (real-time PPM, safety status, fan state, and local IP), LED indicator, alarm buzzer, and top-mounted mini exhaust fan.
+            </div>
+          </div>
+
+          <div class="photo-slot">
+            <div class="photo-thumb" onclick="openLightbox(this)">
+              <img src="img/Screenshot 2026-11-18 130903.png" alt="GasGuard Real-Time Web Monitoring Dashboard" />
+            </div>
+            <div class="photo-caption">
+              <strong>GasGuard Real-Time Web Dashboard</strong>
+              Interactive web interface displaying live MQ-2 PPM gauge, min/avg/max statistics, real-time PPM chart, manual/automatic exhaust fan relay controls, ESP32 online status, and Telegram Bot alert thresholds.
+            </div>
+          </div>
+
+          <div class="photo-slot">
+            <div class="photo-thumb" onclick="openLightbox(this)">
+              <img src="img/foto-bersama-alat-iot-projek-sistem monitoring projek iot sistem monitoring kebakarang gas lpg.jpeg" alt="GasGuard Project Team Documentation" />
+            </div>
+            <div class="photo-caption">
+              <strong>Project Team &amp; Hardware Demonstration</strong>
+              Team documentation at IPB Vocational School with the completed GasGuard household LPG gas leak monitoring prototype.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 3 GALLERY CARD -->
+      <div class="project-detail-card">
+        <div class="project-detail-top">
+          <div>
+            <h4>3. Network Maintenance &amp; Daily Bandwidth Monitoring (PT Bonet Utama Bogor)</h4>
           </div>
           <span class="project-role-badge">Network &amp; IT Support Intern • Jan – May 2024</span>
         </div>
@@ -1803,7 +1883,8 @@
 
   <footer>
     &copy; 2026 Binggie Rashel Prasetyo •
-    <a href="mailto:binggierashel@gmail.com" style="color: var(--accent)">binggierashel@gmail.com</a>
+    <a href="mailto:binggierashel@gmail.com" style="color: var(--accent)">binggierashel@gmail.com</a> •
+    <a href="https://www.linkedin.com/in/binggie-rashel-prasetyo/" target="_blank" rel="noopener" style="color: var(--accent)">LinkedIn</a>
   </footer>
 
   <!-- Scroll to Top Button -->
