@@ -29,6 +29,7 @@
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 86px;
     }
 
     body {
@@ -51,36 +52,50 @@
       padding: 0 24px;
     }
 
-    /* ================= NAVBAR ================= */
+    /* ================= NAVBAR (STICKY / FIXED ON SCROLL) ================= */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 80;
+      border-bottom: 1px solid transparent;
+      transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+    }
+
+    .site-header.scrolled {
+      background: rgba(11, 15, 29, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom-color: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.38);
+    }
+
     .navbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 26px 0;
+      padding-top: 20px;
+      padding-bottom: 20px;
       position: relative;
-      z-index: 20;
+      z-index: 40;
+      transition: padding-top 0.3s ease, padding-bottom 0.3s ease;
+    }
+
+    .site-header.scrolled .navbar {
+      padding-top: 13px;
+      padding-bottom: 13px;
     }
 
     .brand {
       display: flex;
-      align-items: center;
-      gap: 10px;
+      flex-direction: column;
+      gap: 2px;
       font-weight: 800;
-      font-size: 0.78rem;
-      letter-spacing: 1.2px;
+      font-size: 0.82rem;
+      letter-spacing: 1.4px;
       text-transform: uppercase;
       line-height: 1.15;
-    }
-
-    .brand-icon {
-      width: 34px;
-      height: 34px;
-      border-radius: 8px;
-      display: grid;
-      place-items: center;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border-subtle);
-      color: var(--accent);
     }
 
     .brand-sub {
@@ -88,7 +103,7 @@
       font-size: 0.62rem;
       font-weight: 500;
       color: var(--text-dim);
-      letter-spacing: 2px;
+      letter-spacing: 2.2px;
     }
 
     .nav-links {
@@ -141,6 +156,132 @@
       place-items: center;
       font-weight: 800;
       font-size: 0.85rem;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .hamburger-btn {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      cursor: pointer;
+      padding: 0;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5.5px;
+      transition: background 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+    }
+
+    .hamburger-btn:hover,
+    .hamburger-btn.is-open {
+      border-color: var(--accent);
+      background: rgba(226, 251, 99, 0.1);
+    }
+
+    .hamburger-line {
+      display: block;
+      width: 20px;
+      height: 2px;
+      border-radius: 99px;
+      background: #ffffff;
+      transform-origin: center;
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                  opacity 0.25s ease,
+                  background-color 0.25s ease,
+                  width 0.3s ease;
+    }
+
+    .hamburger-line.mid {
+      width: 14px;
+      align-self: flex-end;
+      margin-right: 10px;
+    }
+
+    .hamburger-btn.is-open .hamburger-line {
+      background: var(--accent);
+    }
+
+    .hamburger-btn.is-open .hamburger-line.top {
+      transform: translateY(7.5px) rotate(45deg);
+    }
+
+    .hamburger-btn.is-open .hamburger-line.mid {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+
+    .hamburger-btn.is-open .hamburger-line.bot {
+      transform: translateY(-7.5px) rotate(-45deg);
+    }
+
+    /* ================= SCROLL & ENTRANCE ANIMATIONS ================= */
+    @keyframes heroFadeDown {
+      from {
+        opacity: 0;
+        transform: translateY(-18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes heroRiseUp {
+      from {
+        opacity: 0;
+        transform: translateY(28px) scale(0.97);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .hero-headline {
+      animation: heroFadeDown 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .hero-portrait-wrap {
+      animation: heroRiseUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.72s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.72s cubic-bezier(0.22, 1, 0.36, 1);
+      transition-delay: var(--reveal-delay, 0ms);
+      will-change: opacity, transform;
+    }
+
+    .reveal.reveal-scale {
+      transform: translateY(22px) scale(0.95);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-headline,
+      .hero-portrait-wrap {
+        animation: none !important;
+      }
+      .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
     }
 
     /* ================= BUTTONS ================= */
@@ -199,7 +340,7 @@
     .hero-wrapper {
       position: relative;
       overflow: hidden;
-      padding-top: 24px;
+      padding-top: 112px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       background:
         radial-gradient(circle at 50% 58%, rgba(154, 214, 92, 0.34) 0%, rgba(56, 114, 158, 0.25) 36%, rgba(11, 15, 29, 0) 68%),
@@ -210,7 +351,7 @@
       text-align: center;
       position: relative;
       z-index: 5;
-      margin-bottom: 12px;
+      margin-bottom: 18px;
     }
 
     .hero-headline h1 {
@@ -506,40 +647,6 @@
     @keyframes float3D3 {
       0%, 100% { transform: translateY(0px) rotate(11deg) scale(1); }
       50% { transform: translateY(-14px) rotate(7deg) scale(1.03); }
-    }
-
-    /* Scroll to Top Button */
-    .scroll-top-btn {
-      position: fixed;
-      bottom: 28px;
-      right: 28px;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: var(--accent);
-      color: #0b0f1d;
-      border: none;
-      display: grid;
-      place-items: center;
-      cursor: pointer;
-      z-index: 90;
-      box-shadow: 0 10px 28px rgba(226, 251, 99, 0.35);
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(16px) scale(0.9);
-      transition: all 0.28s cubic-bezier(0.25, 1, 0.5, 1);
-    }
-
-    .scroll-top-btn.visible {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0) scale(1);
-    }
-
-    .scroll-top-btn:hover {
-      background: var(--accent-hover);
-      transform: translateY(-4px) scale(1.06);
-      box-shadow: 0 14px 32px rgba(226, 251, 99, 0.5);
     }
 
     /* ================= MY SKILLS SECTION ================= */
@@ -1110,7 +1217,8 @@
 
     @media (max-width: 900px) {
       .container {
-        padding: 0 18px;
+        padding-left: 18px;
+        padding-right: 18px;
       }
 
       .hero-stage {
@@ -1118,14 +1226,14 @@
         align-items: center;
         min-height: auto;
         padding-bottom: 28px;
-        gap: 14px;
+        gap: 16px;
       }
 
       .hero-portrait-wrap {
         order: 1;
         width: 100%;
         max-width: 300px;
-        margin-bottom: 6px;
+        margin-bottom: 10px;
       }
 
       .hero-portrait {
@@ -1156,7 +1264,23 @@
 
       /* Keep 3D cards visible on mobile in a neat row above WHO AM I */
       .about-section {
-        padding: 72px 18px 64px;
+        padding-top: 72px;
+        padding-bottom: 56px;
+      }
+
+      .skills-section {
+        padding-top: 36px;
+        padding-bottom: 60px;
+      }
+
+      .projects-section {
+        padding-top: 52px;
+        padding-bottom: 64px;
+      }
+
+      .contact-section {
+        padding-top: 16px;
+        padding-bottom: 64px;
       }
 
       .mini-photo {
@@ -1182,7 +1306,7 @@
 
       .projects-wrap {
         grid-template-columns: 1fr;
-        gap: 24px;
+        gap: 28px;
       }
 
       .projects-left {
@@ -1199,7 +1323,26 @@
 
       .projects-gallery {
         flex-direction: column;
-        height: 560px;
+        height: auto;
+        gap: 12px;
+      }
+
+      .project-panel {
+        flex: none !important;
+        height: 118px;
+        transition: height 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+      }
+
+      .project-panel.active {
+        height: 270px;
+      }
+
+      .project-panel:not(.active) .project-tag {
+        display: none;
+      }
+
+      .project-overlay {
+        padding: 16px;
       }
 
       .photo-gallery-grid {
@@ -1212,26 +1355,112 @@
       }
     }
 
-    @media (max-width: 600px) {
-      .navbar {
-        flex-wrap: wrap;
-        gap: 14px;
-        padding: 18px 0 12px;
+    @media (max-width: 768px) {
+      .container {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .hero-wrapper {
+        padding-top: 100px;
+      }
+
+      .navbar,
+      .site-header.scrolled .navbar {
+        padding-top: 14px;
+        padding-bottom: 14px;
+      }
+
+      .hamburger-btn {
+        display: inline-flex;
       }
 
       .nav-links {
-        order: 3;
-        width: 100%;
-        justify-content: center;
-        gap: 22px;
-        padding: 10px 14px;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 6px;
+        padding: 14px;
+        border-radius: 18px;
+        background: rgba(14, 20, 38, 0.96);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 22px 48px rgba(0, 0, 0, 0.6);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(-12px) scale(0.97);
+        transform-origin: top right;
+        transition: opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                    visibility 0.3s ease;
+        z-index: 50;
       }
 
+      .nav-links.is-open {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0) scale(1);
+      }
+
+      .nav-links li {
+        opacity: 0;
+        transform: translateX(-10px);
+        transition: opacity 0.25s ease, transform 0.25s ease;
+      }
+
+      .nav-links.is-open li {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .nav-links.is-open li:nth-child(1) { transition-delay: 0.05s; }
+      .nav-links.is-open li:nth-child(2) { transition-delay: 0.1s; }
+      .nav-links.is-open li:nth-child(3) { transition-delay: 0.15s; }
+      .nav-links.is-open li:nth-child(4) { transition-delay: 0.2s; }
+
       .nav-links a {
-        font-size: 0.72rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 16px;
+        border-radius: 12px;
+        font-size: 0.84rem;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid transparent;
+      }
+
+      .nav-links a::after {
+        content: '→';
+        color: var(--accent);
+        font-size: 0.85rem;
+        opacity: 0.75;
+      }
+
+      .nav-links a:hover,
+      .nav-links a:active {
+        background: rgba(226, 251, 99, 0.1);
+        border-color: rgba(226, 251, 99, 0.3);
+        color: var(--accent);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .btn-contact-nav {
+        gap: 8px;
+        padding: 5px 5px 5px 14px;
+        font-size: 0.7rem;
+      }
+
+      .btn-contact-nav .arrow-circle {
+        width: 26px;
+        height: 26px;
+        font-size: 0.8rem;
       }
 
       .hero-headline h1 {
@@ -1270,48 +1499,53 @@
       .photo-thumb {
         height: 200px;
       }
-
-      .scroll-top-btn {
-        bottom: 18px;
-        right: 18px;
-        width: 44px;
-        height: 44px;
-      }
     }
   </style>
 </head>
 <body>
 
-  <!-- ================= HERO & NAVBAR ================= -->
-  <div class="hero-wrapper">
+  <!-- ================= STICKY NAVBAR ================= -->
+  <header class="site-header" id="siteHeader">
     <div class="container">
       <nav class="navbar">
         <a href="#" class="brand">
-          <div class="brand-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-              <circle cx="12" cy="12" r="3"></circle>
-              <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(30 12 12)"></ellipse>
-              <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(150 12 12)"></ellipse>
-            </svg>
-          </div>
-          <div>
-            BINGGIE
-            <span class="brand-sub">PORTFOLIO</span>
-          </div>
+          BINGGIE
+          <span class="brand-sub">PORTFOLIO</span>
         </a>
 
-        <ul class="nav-links">
-          <li><a href="#about">About Me</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="https://www.linkedin.com/in/binggie-rashel-prasetyo/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#about" onclick="closeMobileMenu()">About Me</a></li>
+          <li><a href="#skills" onclick="closeMobileMenu()">Skills</a></li>
+          <li><a href="#projects" onclick="closeMobileMenu()">Projects</a></li>
+          <li><a href="https://www.linkedin.com/in/binggie-rashel-prasetyo/" target="_blank" rel="noopener" onclick="closeMobileMenu()">LinkedIn</a></li>
         </ul>
 
-        <a href="#contact" class="btn-contact-nav">
-          Contact
-          <span class="arrow-circle">↗</span>
-        </a>
+        <div class="nav-actions">
+          <a href="#contact" class="btn-contact-nav">
+            Contact
+            <span class="arrow-circle">↗</span>
+          </a>
+          <button
+            type="button"
+            id="hamburgerBtn"
+            class="hamburger-btn"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+            aria-controls="navLinks"
+            onclick="toggleMobileMenu()"
+          >
+            <span class="hamburger-line top"></span>
+            <span class="hamburger-line mid"></span>
+            <span class="hamburger-line bot"></span>
+          </button>
+        </div>
       </nav>
+    </div>
+  </header>
+
+  <!-- ================= HERO SECTION ================= -->
+  <div class="hero-wrapper">
+    <div class="container">
 
       <!-- Headline -->
       <div class="hero-headline">
@@ -1647,7 +1881,7 @@
           My Heart
         </h2>
         <p>
-          Click on any card on the right to preview, or press <strong>Show My Projects</strong> below
+          Click on any project card to preview, or press <strong>Show My Projects</strong> below
           to open the complete project photo gallery &amp; technical descriptions.
         </p>
         <button type="button" class="btn-accent" onclick="toggleProjectShowcase()">
@@ -1663,6 +1897,7 @@
             src="img/prototipe-alat-kalta.jpeg"
             alt="Smart Autodosing Greenhouse Melon Prototype"
             class="project-art"
+            style="object-position: center 62%;"
           />
           <div class="project-overlay">
             <span class="project-tag">IoT &amp; Embedded • Aug 2026 – Present</span>
@@ -1758,7 +1993,7 @@
         <div class="photo-gallery-grid">
           <div class="photo-slot">
             <div class="photo-thumb" onclick="openLightbox(this)">
-              <img src="img/prototipe-alat-kalta.jpeg" alt="Smart Autodosing Hardware Prototype" />
+              <img src="img/prototipe-alat-kalta.jpeg" alt="Smart Autodosing Hardware Prototype" style="object-position: center 62%;" />
             </div>
             <div class="photo-caption">
               <strong>Hardware Prototype &amp; Peristaltic Pump Assembly</strong>
@@ -1778,7 +2013,7 @@
 
           <div class="photo-slot">
             <div class="photo-thumb" onclick="openLightbox(this)">
-              <img src="img/foto-dengan-mitra-kalta.jpg" alt="Field Coordination with Kalta Farm Partner" />
+              <img src="img/foto-dengan-mitra-kalta.jpg" alt="Field Coordination with Kalta Farm Partner" style="object-position: center 22%;" />
             </div>
             <div class="photo-caption">
               <strong>Field Visit &amp; Coordination with Kalta Farm Partner</strong>
@@ -1830,7 +2065,7 @@
 
           <div class="photo-slot">
             <div class="photo-thumb" onclick="openLightbox(this)">
-              <img src="img/foto-bersama-alat-iot-projek-sistem monitoring projek iot sistem monitoring kebakarang gas lpg.jpeg" alt="GasGuard Project Team Documentation" />
+              <img src="img/foto-bersama-alat-iot-projek-sistem monitoring projek iot sistem monitoring kebakarang gas lpg.jpeg" alt="GasGuard Project Team Documentation" style="object-position: center 22%;" />
             </div>
             <div class="photo-caption">
               <strong>Project Team &amp; Hardware Demonstration</strong>
@@ -1872,7 +2107,7 @@
 
           <div class="photo-slot">
             <div class="photo-thumb" onclick="openLightbox(this)">
-              <img src="img/foto-bersama-alat-suhu -ruangan.jpeg" alt="Team Documentation with Room Temperature Monitoring Device" />
+              <img src="img/foto-bersama-alat-suhu -ruangan.jpeg" alt="Team Documentation with Room Temperature Monitoring Device" style="object-position: center 22%;" />
             </div>
             <div class="photo-caption">
               <strong>Team Documentation &amp; Hardware Testing</strong>
@@ -1913,7 +2148,7 @@
 
           <div class="photo-slot">
             <div class="photo-thumb" onclick="openLightbox(this)">
-              <img src="img/pkl-smk-dengan-tempat-magang.jpg" alt="Internship at PT Bonet Utama Bogor" />
+              <img src="img/pkl-smk-dengan-tempat-magang.jpg" alt="Internship at PT Bonet Utama Bogor" style="object-position: center 22%;" />
             </div>
             <div class="photo-caption">
               <strong>5-Month Internship Completion at PT Bonet Utama</strong>
@@ -1974,32 +2209,90 @@
     <a href="https://www.linkedin.com/in/binggie-rashel-prasetyo/" target="_blank" rel="noopener" style="color: var(--accent)">LinkedIn</a>
   </footer>
 
-  <!-- Scroll to Top Button -->
-  <button
-    type="button"
-    id="scrollTopBtn"
-    class="scroll-top-btn"
-    aria-label="Scroll to top"
-    onclick="scrollToTop()"
-  >
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M18 15l-6-6-6 6" />
-    </svg>
-  </button>
-
   <script>
-    const scrollTopBtn = document.getElementById('scrollTopBtn');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) {
-        scrollTopBtn.classList.add('visible');
-      } else {
-        scrollTopBtn.classList.remove('visible');
+    // Mobile Hamburger Menu Toggle
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const navLinks = document.getElementById('navLinks');
+
+    function toggleMobileMenu() {
+      const isOpen = navLinks.classList.toggle('is-open');
+      hamburgerBtn.classList.toggle('is-open', isOpen);
+      hamburgerBtn.setAttribute('aria-expanded', String(isOpen));
+    }
+
+    function closeMobileMenu() {
+      navLinks.classList.remove('is-open');
+      hamburgerBtn.classList.remove('is-open');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+    }
+
+    document.addEventListener('click', (e) => {
+      if (navLinks.classList.contains('is-open') && !e.target.closest('.navbar')) {
+        closeMobileMenu();
       }
     });
 
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeMobileMenu();
+        closeLightbox();
+      }
+    });
+
+    // Scroll Reveal Animations
+    function initScrollAnimations() {
+      const revealGroups = [
+        { selector: '.about-section .section-heading, .about-content p, .about-content .btn-accent', stagger: 90, extra: '' },
+        { selector: '.skills-section .section-heading', stagger: 0, extra: '' },
+        { selector: '.skill-card', stagger: 55, extra: 'reveal-scale' },
+        { selector: '.experience-box, .additional-box', stagger: 90, extra: '' },
+        { selector: '.projects-left, .projects-gallery', stagger: 120, extra: '' },
+        { selector: '.project-detail-card', stagger: 80, extra: '' },
+        { selector: '.photo-slot', stagger: 75, extra: 'reveal-scale' },
+        { selector: '.contact-card', stagger: 0, extra: '' }
+      ];
+
+      const targets = [];
+      revealGroups.forEach(({ selector, stagger, extra }) => {
+        document.querySelectorAll(selector).forEach((el, idx) => {
+          el.classList.add('reveal');
+          if (extra) el.classList.add(extra);
+          if (stagger) {
+            el.style.setProperty('--reveal-delay', `${Math.min(idx, 5) * stagger}ms`);
+          }
+          targets.push(el);
+        });
+      });
+
+      if (!('IntersectionObserver' in window)) {
+        targets.forEach((el) => el.classList.add('is-visible'));
+        return;
+      }
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+      );
+
+      targets.forEach((el) => observer.observe(el));
     }
+
+    initScrollAnimations();
+
+    // Sticky Navbar state on scroll
+    const siteHeader = document.getElementById('siteHeader');
+    function updateHeaderOnScroll() {
+      siteHeader.classList.toggle('scrolled', window.scrollY > 24);
+    }
+    window.addEventListener('scroll', updateHeaderOnScroll, { passive: true });
+    updateHeaderOnScroll();
 
     function activateProject(panel) {
       document.querySelectorAll('.project-panel').forEach((item) => {
